@@ -5,19 +5,27 @@ https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
 题目：给你一个非严格递增排列的数组 nums，原地删除重复元素，
       使每个元素只出现一次，返回删除后数组的新长度。
 
-思路：（先用中文把你的想法写在这里）
-
+思路：快慢指针。slow 是「有效区的长度」，也就是下一个可以写的位置的下标。
+      第一个元素一定保留，所以 slow 从 1 开始。
+      fast 从下标 1 开始扫，拿 nums[fast] 和有效区最后一个元素 nums[slow-1] 比：
+        - 相同 → 重复元素，跳过
+        - 不同 → 是新元素，写进 nums[slow]，然后 slow 加一
+      扫完后有效区就是去重结果，它的长度 slow 就是答案。
 
 复杂度：时间 O(n)，空间 O(1)
 
-提示：数组已经有序，重复元素一定挨在一起。还是快慢指针：
-      fast 找"和 slow 位置的值不一样"的元素，找到就搬到 slow 的下一位。
+易错点：比较的对象必须是 nums[slow-1]（刚写进去的最新值），
+        写成 nums[slow] 会拿到还没被覆盖的旧数据，导致误判。
 """
 
 
 def removeDuplicates(nums):
-    # TODO: 在这里写你的代码
-    pass
+    slow = 1
+    for fast in range(1, len(nums)):
+        if nums[fast] != nums[slow - 1]:
+            nums[slow] = nums[fast]
+            slow += 1
+    return slow
 
 
 if __name__ == "__main__":
