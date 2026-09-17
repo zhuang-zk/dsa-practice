@@ -1,0 +1,25 @@
+{
+  // 中文不乱码
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // 写代码舒服一点
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": false,
+
+  // 关键：让终端和 Python 都按 UTF-8 走，
+  // 否则 print 中文会变成乱码
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "args": ["-NoExit", "-Command", "chcp 65001 > $null"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.env.windows": {
+    "PYTHONUTF8": "1",
+    "PYTHONIOENCODING": "utf-8"
+  }
+}
