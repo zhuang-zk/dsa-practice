@@ -1,0 +1,7 @@
+# 统一用 LF 换行，避免每次提交都刷 CRLF 警告
+* text=auto eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.png binary
+*.jpg binary

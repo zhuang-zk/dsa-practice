@@ -9,6 +9,9 @@
   "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
 
+  // 你的 Python 装在 D 盘根目录，这里指给它
+  "python.defaultInterpreterPath": "D:/python.exe",
+
   // 关键：让终端和 Python 都按 UTF-8 走，
   // 否则 print 中文会变成乱码
   "terminal.integrated.profiles.windows": {
