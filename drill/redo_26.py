@@ -13,7 +13,12 @@ https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
 
 def removeDuplicates(nums):
     # 在这里写你的代码
-    pass
+    slow = 1
+    for fast in range(len(nums)):
+        if nums[fast] != nums[slow - 1]:
+            nums[slow] = nums[fast]
+            slow += 1
+    return slow
 
 
 if __name__ == "__main__":
@@ -24,6 +29,7 @@ if __name__ == "__main__":
         ([1, 1], [1]),
     ]
     for nums, kept in cases:
+        original = nums[:]
         result = removeDuplicates(nums)
         ok = result == len(kept) and nums[:result] == kept
-        print(f"[{'通过' if ok else '不通过'}] 输入 {nums} → 返回 {result}，期望 {len(kept)}")
+        print(f"[{'通过' if ok else '不通过'}] 输入 {original} → 返回 {result}，期望 {len(kept)}")

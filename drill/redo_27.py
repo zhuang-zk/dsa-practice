@@ -12,7 +12,13 @@ https://leetcode.cn/problems/remove-element/
 
 def removeElement(nums, val):
     # 在这里写你的代码
-    pass
+    slow = 0
+    for fast in range(len(nums)):
+        if nums[fast] != val:
+            nums[slow] = nums[fast]
+            slow += 1
+    return slow
+
 
 
 if __name__ == "__main__":
@@ -23,6 +29,7 @@ if __name__ == "__main__":
         ([4, 5], 4, [5]),
     ]
     for nums, val, kept in cases:
+        original = nums[:]
         result = removeElement(nums, val)
         ok = result == len(kept) and sorted(nums[:result]) == sorted(kept)
-        print(f"[{'通过' if ok else '不通过'}] 输入 {nums}，val={val} → 返回 {result}，期望 {len(kept)}")
+        print(f"[{'通过' if ok else '不通过'}] 输入 {original}，val={val} → 返回 {result}，期望 {len(kept)}")
