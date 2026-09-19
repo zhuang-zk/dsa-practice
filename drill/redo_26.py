@@ -14,7 +14,7 @@ https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
 def removeDuplicates(nums):
     # 在这里写你的代码
     slow = 1
-    for fast in range(len(nums)):
+    for fast in range(1, len(nums)):
         if nums[fast] != nums[slow - 1]:
             nums[slow] = nums[fast]
             slow += 1
