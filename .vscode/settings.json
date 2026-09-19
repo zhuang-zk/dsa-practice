@@ -12,8 +12,8 @@
   // 你的 Python 装在 D 盘根目录，这里指给它
   "python.defaultInterpreterPath": "D:/python.exe",
 
-  // 关键：让终端和 Python 都按 UTF-8 走，
-  // 否则 print 中文会变成乱码
+  // 终端：切到 UTF-8，并把 D 盘根目录加进 PATH，
+  // 这样终端里直接敲 python 就能用，不用写全路径
   "terminal.integrated.profiles.windows": {
     "PowerShell": {
       "source": "PowerShell",
@@ -23,6 +23,7 @@
   "terminal.integrated.defaultProfile.windows": "PowerShell",
   "terminal.integrated.env.windows": {
     "PYTHONUTF8": "1",
-    "PYTHONIOENCODING": "utf-8"
+    "PYTHONIOENCODING": "utf-8",
+    "PATH": "D:\\;D:\\Scripts;${env:PATH}"
   }
 }
