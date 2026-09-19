@@ -13,7 +13,13 @@ https://leetcode.cn/problems/move-zeroes/
 
 def moveZeroes(nums):
     # 在这里写你的代码
-    pass
+    slow = 0
+    for fast in range(len(nums)):
+        if nums[fast] != 0:
+            nums[slow] = nums[fast]
+            slow += 1
+    for x in range(slow,len(nums)):
+        nums[x] = 0
 
 
 if __name__ == "__main__":
