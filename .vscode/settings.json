@@ -5,6 +5,10 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
 
+  // 自动保存：改完 1 秒后自动写盘，省得忘按 Ctrl+S
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+
   // 写代码舒服一点
   "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
